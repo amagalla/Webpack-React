@@ -1,0 +1,62 @@
+{
+  "name": "code-collab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "cross-env NODE_ENV=production nodemon server/server.js",
+    "dev-server": "cross-env NODE_ENV=development webpack serve --config webpack.config.js ",
+    "dev": "concurrently \"npm nodemon server/server.js\" \"npm run dev-server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calibeach/code-collab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calibeach/code-collab/issues"
+  },
+  "homepage": "https://github.com/calibeach/code-collab#readme",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "axios": "^0.21.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.6",
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "^2.1.2"
+  }
+}
