@@ -1,6 +1,4 @@
-This is a biolerplate for basic React/CSS/Express setup that Sean made.
-
-create .env file in root directory
+create .env file in root directory (look at and follow .env.example file)
 
 npm install
 
