@@ -34,7 +34,6 @@ module.exports = {
           }
         ]
       },
-      
       {
         test:/\.html$/,
         use: [
