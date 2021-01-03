@@ -47,6 +47,7 @@ module.exports = {
     open: true,
     hot: true,
     publicPath: "/dist/",
+    historyApiFallback: true,
     proxy: [
       {
         context: ["/api/**"],
