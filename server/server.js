@@ -1,49 +1,37 @@
-require("dotenv").config();
-const path = require("path");
-const express = require("express");
-const { PORT } = process.env;
-
+const express = require('express');
 const app = express();
+const path = require('path');
+const cors = require('cors');
 
-/**
- * import routers
- */
+// import routes
 
-/**
- * req parsers
- */
+
+app.use(cors());
+
+const PORT = 3000;
+
+// parsing body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/**
- * static
- */
-app.use("/dist", express.static(path.resolve(__dirname, "../dist")));
+//routes
 
-/**
- * routers
- */
+// bad route error handling
+app.use((req, res) => {
+  console.log('we are in a bad route');
+  res.sendStatus(418);
+});
 
-
-if (process.env.NODE_ENV === "production") {
-  app.get("/", (req, res) =>
-    res.status(200).sendFile(path.resolve(__dirname, "../index.html")),
-  );
-}
-// catch-all route handler for any requests to an unknown route
-app.use((req, res) => res.sendStatus(404));
-
+// global error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
-    status: 400,
-    message: { err: 'An error occurred. Check server logs for details.' },
+    status: 500,
+    message: { err: 'An error occurred' },
   };
-  const errorObj = { ...defaultErr, ...err};
+  const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running at ${PORT}`));
